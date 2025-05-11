@@ -2,15 +2,15 @@ from litestar import di
 import typing
 
 import litestar
-from app.core import interface
 from app import services
 from app import repository
-
+from app import settings 
 
 class App:
     containers = [
         repository.Container(),
         services.Container(),
+        settings.Container(),
     ]
     __depends: typing.Dict[str, di.Provide] = {}
     def register_depends(self):
